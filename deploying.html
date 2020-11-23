@@ -486,8 +486,8 @@ creates a <code>language-common-v1.0.0.tgz</code> file in the 'builds' directory
 <li><strong>Create a release</strong> on the the associated repo on Github, selecting the
    version tag that was pushed in the last step. Write a title and release notes
    as needed then click 'Publish release'.</li>
-<li><strong>Return to the devtools directory</strong> with <code>cd ../</code></li>
-<li><strong>Bundle the module</strong> with <code>./scripts/bundle-node &lt;language-pack&gt; -o builds</code></li>
+<li><strong>Return to the devtools directory</strong> with <code>cd ../../</code></li>
+<li><strong>Bundle the module</strong> with <code>./scripts/bundle-node ./adaptors/&lt;language-pack&gt; -o builds</code></li>
 <li><strong>Verify that the tarball was created</strong> in <code>builds</code> with the naming
    convention of: <code>&lt;language-pack&gt;-&lt;version&gt;.tgz</code></li>
 <li><strong>Upload the build</strong> using the <code>upload-release</code> script:
