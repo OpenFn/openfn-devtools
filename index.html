@@ -451,30 +451,32 @@ and developing new adaptors (language-packages).</p>
 </ol>
 <p><em>Note: If you get a "permission denied" message when running <code>./install.sh</code>, try
 <code>run chmod +x ./install.sh</code> then retry the install command.</em></p>
-<p>To install specific adaptors, run <code>./install.sh ${ssh || https} language-${name}</code></p>
-<p>You can run core from anywhere by using <code>npm install -g</code> for global install
-<code>npm install -g github:openfn/core#master</code></p>
+<p>To install specific adaptors, run
+<code>./install.sh ${ssh || https} language-${name}</code></p>
+<p>You can run core from anywhere by using <code>npm install -g @openfn/core</code> for a
+global install.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>Execute takes:</p>
 <ol>
 <li><code>-l [language-package].Adaptor</code>: The adaptor being used</li>
 <li><code>-e [expression.js]:</code> The expression being tested</li>
-<li><code>-s [state.json]</code>: The message <code>data: {...}</code> and credential <code>configuration: {...}</code></li>
+<li><code>-s [state.json]</code>: The message <code>data: {...}</code> and credential
+   <code>configuration: {...}</code></li>
 <li><code>-o [output.json]</code>: The file to which the output will be written</li>
 </ol>
 <h3 id="bash-usage">Bash usage<a class="headerlink" href="#bash-usage" title="Permanent link">#</a></h3>
-<p><code>./core/lib/cli.js execute -l ./language-[XXX].Adaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js</code></p>
+<p><code>./core/bin/core execute execute -l ./language-[XXX].Adaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js</code></p>
 <h3 id="the-test-option">The <code>--test</code> option<a class="headerlink" href="#the-test-option" title="Permanent link">#</a></h3>
-<p><code>./core/lib/cli.js execute -l ./language-[XXX].Adaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js --test</code></p>
+<p><code>./core/bin/core execute -l ./language-[XXX].Adaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js --test</code></p>
 <p>This intercepts all HTTP requests and displays the request information for
 debugging.</p>
 <h4 id="fakeadaptor"><code>.FakeAdaptor</code><a class="headerlink" href="#fakeadaptor" title="Permanent link">#</a></h4>
 <p>Adaptors may provide dummy modules for testing. <code>language-salesforce</code> has a
 built-in <code>.FakeAdaptor</code> which allows a user to test expressions on data without
 sending them to a real Salesforce server.</p>
-<p>Instead of using <code>-l ./language-salesforce.Adaptor</code>,
-use <code>-l./language-salesforce.FakeAdaptor</code> to test expressions offline:
-<code>./core/lib/cli.js execute -l ./language-salesforce.FakeAdaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js</code></p>
+<p>Instead of using <code>-l ./language-salesforce.Adaptor</code>, use
+<code>-l./language-salesforce.FakeAdaptor</code> to test expressions offline:
+<code>./core/bin/core execute -l ./language-salesforce.FakeAdaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js</code></p>
 <h4 id="offline-testing-for-other-language-packages">Offline testing for other <code>language-packages</code><a class="headerlink" href="#offline-testing-for-other-language-packages" title="Permanent link">#</a></h4>
 <p>For most standard language packages which make use of HTTP requests, you can add
 <code>--test</code> to the execute command to intercept all HTTP requests.</p>
